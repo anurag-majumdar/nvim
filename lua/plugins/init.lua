@@ -1,5 +1,19 @@
 return {
   {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "typescript-language-server",
+        "tailwindcss-language-server",
+        "html-lsp",
+        "css-lsp",
+        "lua-language-server",
+        "clangd",
+        "angular-language-server",
+      }
+    }
+  },
+  {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
