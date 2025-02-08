@@ -22,4 +22,6 @@ M.ui = {
      }
 }
 
+M.mappings = require "configs.dap-mappings"
+
 return M
