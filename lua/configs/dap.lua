@@ -8,25 +8,25 @@ local js_based_languages = {
   "vue"
 }
 
-dap.adapters["pwa-node"] = {
-  type = "server",
-  host = "localhost",
-  port = "${port}",
-  executable = {
-    command = "node",
-    -- 💀 Make sure to update this path to point to your installation
-    args = {"../../../js-debug-dap-v1.97.0/js-debug/src/dapDebugServer.js", "${port}"},
-  }
-}
-
 -- dap.adapters["pwa-node"] = {
 --   type = "server",
---   host = "127.0.0.1",
---   port = 8123,
+--   host = "localhost",
+--   port = "${port}",
 --   executable = {
---     command = "js-debug-adapter",
+--     command = "node",
+--     -- 💀 Make sure to update this path to point to your installation
+--     args = {"../../../js-debug-dap-v1.97.0/js-debug/src/dapDebugServer.js", "${port}"},
 --   }
 -- }
+
+dap.adapters["pwa-node"] = {
+  type = "server",
+  host = "127.0.0.1",
+  port = 8123,
+  executable = {
+    command = "js-debug-adapter",
+  }
+}
 
 for _, language in ipairs(js_based_languages) do
   dap.configurations[language] = {
@@ -34,16 +34,17 @@ for _, language in ipairs(js_based_languages) do
     {
       type = "pwa-node",
       request = "launch",
-      name = "Launch JS file",
+      name = "NeoVim Launch JS file",
       program = "${file}",
       cwd = "${workspaceFolder}",
+      sourceMaps = true,
     },
     -- Debug nodejs process (make sure to add --inspect when you run the process)
     {
       type = "pwa-node",
       request = "attach",
-      name = "Attach",
-      processId = require("dap.utils").pick_process,
+      name = "NeoVim Attach",
+      -- processId = require("dap.utils").pick_process,
       cwd = "${workspaceFolder}",
       sourceMaps = true,
     },
