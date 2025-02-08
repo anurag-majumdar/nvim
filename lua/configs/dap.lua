@@ -43,14 +43,14 @@ for _, language in ipairs(js_based_languages) do
       sourceMaps = true,
     },
     -- Debug nodejs process (make sure to add --inspect when you run the process)
-    {
-      type = "pwa-node",
-      request = "attach",
-      name = "Attach to node proces",
-      rootPath = "${workspaceFolder}",
-      -- processId = require("dap.utils").pick_process,
-      sourceMaps = true,
-    },
+    -- {
+    --   type = "pwa-node",
+    --   request = "attach",
+    --   name = "Attach to node proces",
+    --   rootPath = "${workspaceFolder}",
+    --   -- processId = require("dap.utils").pick_process,
+    --   sourceMaps = true,
+    -- },
   }
 end
 
