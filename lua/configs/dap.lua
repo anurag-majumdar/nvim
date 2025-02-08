@@ -46,9 +46,9 @@ for _, language in ipairs(js_based_languages) do
     {
       type = "pwa-node",
       request = "attach",
-      name = "NeoVim Attach",
+      name = "Attach to node proces",
+      rootPath = "${workspaceFolder}",
       -- processId = require("dap.utils").pick_process,
-      cwd = "${workspaceFolder}",
       sourceMaps = true,
     },
   }
